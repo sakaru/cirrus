@@ -285,7 +285,7 @@ class Zone:
             log.debug(zone_xml)
             log.debug("Adding rrsets to zone " + self.zone_name)
             for xml in zone_xml:
-                change = self.conn.change_rrsets(self.id, xml)
+                self.conn.change_rrsets(self.id, xml)
     
     def create_host(self, fqdn, rtype, ttl, value):
         """Create a host entry in this zone."""
@@ -356,7 +356,7 @@ class Zone:
         if not dry_run:
             for changeset in changesets:
                 log.debug(changeset)
-                change = self.conn.change_rrsets(self.id, changeset)
+                self.conn.change_rrsets(self.id, changeset)
 
     def update_host(self, fqdn, rtype, ttl, existing, value):
         """Updates a individual host entry in this zone.
@@ -406,5 +406,5 @@ class Zone:
 
             for xml in xmllist:
                 log.debug("Change xml\n" + str(xml))
-                change = self.conn.change_rrsets(self.id, xml)
-            delete = self.conn.delete_hosted_zone(self.id)
+                self.conn.change_rrsets(self.id, xml)
+            self.conn.delete_hosted_zone(self.id)
