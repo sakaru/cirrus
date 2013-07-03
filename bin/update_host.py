@@ -37,8 +37,9 @@ def main():
     if len(args) == 2:
         domain = args[1] #domain is zone
     else:
-        if host.count('.') > 1:
-            domain = host.split('.', 1)[1]
+        subdomain_level = host.count('.')
+        if subdomain_level > 1:
+            domain = host.split('.', subdomain_level-1)[-1]
         else: #must be the domain root
             domain = host
 
