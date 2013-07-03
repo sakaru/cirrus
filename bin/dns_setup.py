@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 #
 """ dns_setup
 Run this on a yaml dns definition an it will check the cloud to make sure your dns is setup

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 #
 """ update_host
 Update a single host entry in Amazon r53. If the entry doesn't exist it is created.
